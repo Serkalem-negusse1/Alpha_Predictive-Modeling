@@ -1,45 +1,68 @@
+# scripts/eda.py
 import pandas as pd
-import matplotlib.pyplot as plt
 import seaborn as sns
+import matplotlib.pyplot as plt
 
-# Load Data
-def load_data(file_path):
-    return pd.read_csv(file_path)
+class EDA:
+    def __init__(self, file_path):
+        """Initialize EDA with the dataset path."""
+        self.file_path = file_path
+        self.df = None
 
-# Summary Statistics
-def data_summary(df):
-    print("Descriptive Statistics:")
-    print(df.describe())
-    print("\nData Types:")
-    print(df.dtypes)
+    def load_data(self):
+        """Load the dataset into a DataFrame."""
+        self.df = pd.read_csv(self.file_path)
+        print("Data loaded successfully.")
+        return self.df
 
-# Missing Values
-def check_missing(df):
-    print("\nMissing Values:")
-    print(df.isnull().sum())
+    def data_summary(self):
+        """Print descriptive statistics and data types."""
+        if self.df is None:
+            raise ValueError("Data not loaded. Call load_data() first.")
+        
+        print("Descriptive Statistics:")
+        print(self.df.describe())
+        print("\nData Types:")
+        print(self.df.dtypes)
 
-# Univariate Analysis
-def univariate_analysis(df, column):
-    if df[column].dtype in ['float64', 'int64']:
-        sns.histplot(df[column], kde=True)
-    else:
-        sns.countplot(data=df, x=column)
-    plt.title(f"Distribution of {column}")
-    plt.show()
+    def check_missing(self):
+        """Check for missing values in the dataset."""
+        if self.df is None:
+            raise ValueError("Data not loaded. Call load_data() first.")
+        
+        print("\nMissing Values:")
+        print(self.df.isnull().sum())
 
-# Bivariate Analysis
-def bivariate_analysis(df, col1, col2):
-    sns.scatterplot(data=df, x=col1, y=col2)
-    plt.title(f"Relationship between {col1} and {col2}")
-    plt.show()
+    def univariate_analysis(self, column):
+        """Perform univariate analysis on a given column."""
+        if self.df is None:
+            raise ValueError("Data not loaded. Call load_data() first.")
+        
+        if self.df[column].dtype in ['float64', 'int64']:
+            sns.histplot(self.df[column], kde=True)
+        else:
+            sns.countplot(data=self.df, x=column)
+        plt.title(f"Distribution of {column}")
+        plt.show()
 
+    def bivariate_analysis(self, col1, col2):
+        """Perform bivariate analysis between two columns."""
+        if self.df is None:
+            raise ValueError("Data not loaded. Call load_data() first.")
+        
+        sns.scatterplot(data=self.df, x=col1, y=col2)
+        plt.title(f"Relationship between {col1} and {col2}")
+        plt.show()
+
+
+# Standalone execution when script is run
 if __name__ == "__main__":
-    file_path = "E:/10Academy/Data03/MachineLearningRating_v3.txt"
-    df = load_data(file_path)
+    file_path = "E:/10Academy/Data03/processed_data.csv"  # Adjust the path as needed
+    eda = EDA(file_path=file_path)
     
-    data_summary(df)
-    check_missing(df)
-    
-    # Example Plots
-    univariate_analysis(df, "TotalPremium")
-    bivariate_analysis(df, "TotalPremium", "TotalClaims")
+    # Run EDA operations
+    ##df = eda.load_data()
+    ##eda.data_summary()
+    ##eda.check_missing()
+    ##eda.univariate_analysis("TotalPremium")  # Replace with a valid column
+    ##eda.bivariate_analysis("TotalPremium", "TotalClaims")  # Replace with valid columns
