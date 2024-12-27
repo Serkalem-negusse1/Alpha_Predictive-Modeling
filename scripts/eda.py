@@ -3,7 +3,7 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-class EDA:
+class pmEDA:
     def __init__(self, file_path):
         """Initialize EDA with the dataset path."""
         self.file_path = file_path
@@ -58,7 +58,7 @@ class EDA:
 # Standalone execution when script is run
 if __name__ == "__main__":
     file_path = "E:/10Academy/Data03/processed_data.csv"  # Adjust the path as needed
-    eda = EDA(file_path=file_path)
+    eda = pmEDA(file_path=file_path)
     
     # Run EDA operations
     ##df = eda.load_data()
