@@ -1,4 +1,4 @@
-# Car Insurance Analytics
+# AlphaCare Insurance Analytics
 
 ## Project Overview
 
