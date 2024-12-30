@@ -57,7 +57,7 @@ class pmEDA:
 
 # Standalone execution when script is run
 if __name__ == "__main__":
-    file_path = "E:/10Academy/Data03/processed_data.csv"  # Adjust the path as needed
+    file_path = "... data/processed_data.csv"  # Adjust the path as needed
     eda = pmEDA(file_path=file_path)
     
     # Run EDA operations
