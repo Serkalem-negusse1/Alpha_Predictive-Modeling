@@ -7,7 +7,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, confusion_matrix
 
 # Load the preprocessed data
-data = pd.read_csv("data/processed_data.csv")
+data = pd.read_csv("... data/processed_data.csv")
 
 # Perform basic EDA
 def eda():
