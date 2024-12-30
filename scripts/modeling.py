@@ -103,7 +103,7 @@ class DataModeling:
 
 if __name__ == "__main__":
     # Load dataset
-    data = pd.read_csv("E:/10Academy/Data03/insurance_data.csv")
+    data = pd.read_csv("... data/insurance_data.csv")
 
     # Initialize and preprocess
     modeler = DataModeling(data)
