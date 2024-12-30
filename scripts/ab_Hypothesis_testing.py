@@ -42,7 +42,7 @@ class HypothesisTesting:
 
 
 if __name__ == "__main__":
-    data = pd.read_csv("E:/10Academy/Data03/insurance_data.csv") #data/preprocessed_data.csv")
+    data = pd.read_csv("... data/insurance_data.csv") #data/preprocessed_data.csv")
     tester = HypothesisTesting(data)
 
     print(tester.test_claims_across_provinces())
