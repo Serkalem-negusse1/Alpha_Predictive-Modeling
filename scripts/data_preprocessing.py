@@ -21,4 +21,4 @@ def preprocess_data(input_file, output_file):
     print(f"Processed data saved to {output_file}")
 
 if __name__ == "__main__":
-    preprocess_data("E:/10Academy/Data03/MachineLearningRating_v3.txt", "E:/10Academy/Data03/processed_data.csv")
+    preprocess_data("... data/MachineLearningRating_v3.txt", "... data/processed_data.csv")
